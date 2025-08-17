@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnifying Glass With LED - Bestbrand Shop</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="🔍 Magnifying Glass with LED – Membaca jadi lebih mudah dan jelas! Dilengkapi lampu LED terang untuk penerangan ekstra.">
+    <meta name="keywords" content="Magnifying Glass LED, Kaca Pembesar LED, Alat Baca LED">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #000000;
+            --dark-gray: #4a4a4a;
+            --light-gray: #9a9a9a;
+            --white: #ffffff;
+            --silver: #c0c0c0;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .font-cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Parallax Effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Glassmorphism */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--dark-gray);
+            border-radius: 4px;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Custom Button Hover */
+        .btn-premium {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-premium:hover::before {
+            left: 100%;
+        }
+        
+        /* Social Proof Popup */
+        .social-proof {
+            position: fixed;
+            top: 20px;
+            right: -400px;
+            z-index: 9999;
+            transition: right 0.5s ease;
+            max-width: 350px;
+        }
+        
+        .social-proof.show {
+            right: 20px;
+        }
+        
+        /* Testimonial Carousel */
+        .testimonial-carousel {
+            scroll-behavior: smooth;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        /* Countdown Timer */
+        .countdown {
+            font-family: 'Open Sans', monospace;
+        }
+        
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            transition: bottom 0.3s ease;
+            z-index: 999;
+        }
+        
+        .sticky-cta.show {
+            bottom: 0;
+        }
+        
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Custom Form Styling */
+        .order-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        /* Trust Badges */
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--white);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Social Proof Popup -->
+    <div id="socialProof" class="social-proof glassmorphism rounded-lg p-4 shadow-2xl">
+        <div class="flex items-center gap-3">
+            <img src="https://cdn.hotishop.com/image/6f220d6e0d6299aeec18d55ec2b726ed9afd914e.jpeg" 
+                 alt="Customer" class="w-10 h-10 rounded-full object-cover">
+            <div>
+                <p class="text-sm text-gray-200">
+                    <span class="font-semibold" id="customerName">Vina</span> dari <span id="customerCity">Jakarta</span>
+                </p>
+                <p class="text-xs text-gray-300">baru saja memesan</p>
+                <p class="text-xs font-semibold text-white">Magnifying Glass With LED</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky CTA -->
+    <div id="stickyCta" class="sticky-cta bg-gradient-to-r from-gray-900 to-black p-4 md:hidden">
+        <div class="flex justify-between items-center">
+            <div>
+                <p class="text-sm text-gray-300">Harga Spesial</p>
+                <p class="text-lg font-bold text-white">Rp 243.000</p>
+            </div>
+            <button onclick="scrollToOrder()" class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-6 py-3 rounded-full font-semibold">
+                Pesan Sekarang
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://cdn.hotishop.com/image/6f220d6e0d6299aeec18d55ec2b726ed9afd914e.jpeg" 
+                 alt="Magnifying Glass With LED" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+        </div>
+        
+        <nav class="relative z-10 px-6 py-6 md:px-12">
+            <div class="flex justify-between items-center">
+                <h1 class="font-cormorant text-2xl md:text-3xl font-bold text-white">Bestbrand Shop</h1>
+                <button class="md:hidden text-white" onclick="toggleMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <div id="mobileMenu" class="hidden md:flex space-x-8">
+                    <a href="#product" class="text-white hover:text-gray-300 transition">Produk</a>
+                    <a href="#features" class="text-white hover:text-gray-300 transition">Fitur</a>
+                    <a href="#testimonials" class="text-white hover:text-gray-300 transition">Testimoni</a>
+                    <a href="#order" class="text-white hover:text-gray-300 transition">Pesan</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
+            <div data-aos="fade-up">
+                <h1 class="font-cormorant text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+                    Magnifying Glass<br>
+                    <span class="text-gray-400">with LED</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Membaca jadi lebih mudah dan jelas! Dilengkapi lampu LED terang untuk penerangan ekstra
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToOrder()" 
+                            class="btn-premium bg-gradient-to-r from-gray-600 to-gray-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-gray-700 hover:to-gray-800 transition-all">
+                        Pesan Sekarang
+                    </button>
+                    <button onclick="scrollToProduct()" 
+                            class="btn-premium border border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all">
+                        Lihat Detail
+                    </button>
+                </div>
+                <div class="mt-8 flex justify-center gap-4">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garansi Resmi</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Pengiriman Cepat</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fas fa-clock"></i>
+                        <span>Pengembalian Mudah</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section id="product" class="py-20 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="relative">
+                        <img src="https://cdn.hotishop.com/image/6f220d6e0d6299aeec18d55ec2b726ed9afd914e.jpeg" 
+                             alt="Magnifying Glass" 
+                             class="w-full rounded-lg shadow-2xl">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                Sisa 8 pcs
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery -->
+                    <div class="grid grid-cols-3 gap-2 mt-4">
+                        <img src="https://cdn.hotishop.com/image/7336b0c456da064b0b7d7a011752f40c8b376596.gif" 
+                             alt="Gallery 1" 
+                             class="w-full h-24 object-cover rounded cursor-pointer hover:opacity-80 transition"
+                             onclick="openLightbox(this.src)">
+                        <img src="https://cdn.hotishop.com/image/f3053af0e484b20e5c6fea50927c4dc54625b2d8-600.jpeg" 
+                             alt="Gallery 2" 
+                             class="w-full h-24 object-cover rounded cursor-pointer hover:opacity-80 transition"
+                             onclick="openLightbox(this.src)">
+                        <img src="https://cdn.hotishop.com/image/5874133a22e2e3a30493892d735040138bd712ec-600.webp" 
+                             alt="Gallery 3" 
+                             class="w-full h-24 object-cover rounded cursor-pointer hover:opacity-80 transition"
+                             onclick="openLightbox(this.src)">
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <h2 class="font-cormorant text-4xl md:text-5xl font-bold mb-4">
+                        Magnifying Glass<br>with LED Premium
+                    </h2>
+                    <p class="text-gray-300 mb-6 text-lg">
+                        Alat bantu visual berkualitas tinggi dengan lampu LED yang dirancang untuk membantu Anda melihat detail kecil dengan lebih jelas.
+                    </p>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-center gap-4">
+                            <span class="text-3xl font-bold text-white">Rp 243.000</span>
+                            <span class="text-xl text-gray-500 line-through">Rp 378.000</span>
+                            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                -36% OFF
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-gray-900 p-4 rounded-lg">
+                            <i class="fas fa-eye text-2xl text-gray-400 mb-2"></i>
+                            <h4 class="font-semibold">Pembesaran 8x 15x dan 23x</h4>
+                            <p class="text-sm text-gray-400">Kualitas kristal jernih</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg">
+                            <i class="fas fa-lightbulb text-2xl text-gray-400 mb-2"></i>
+                            <h4 class="font-semibold">LED Super Bright</h4>
+                            <p class="text-sm text-gray-400">Penerangan optimal</p>
+                        </div>
+                    </div>
+
+                    <button onclick="scrollToOrder()" 
+                            class="w-full btn-premium bg-gradient-to-r from-gray-600 to-gray-700 text-white py-4 rounded-full font-semibold text-lg hover:from-gray-700 hover:to-gray-800 transition-all">
+                        Pesan Sekarang - Sisa 8 pcs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-cormorant text-4xl md:text-5xl font-bold text-center mb-12" data-aos="fade-up">
+                Fitur Unggulan
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-expand-arrows-alt text-2xl text-gray-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Pembesaran 8x 15x dan 23x</h3>
+                    <p class="text-gray-400">Kualitas lensa premium untuk hasil yang jernih dan tajam</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-sun text-2xl text-gray-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">LED Super Bright</h3>
+                    <p class="text-gray-400">Lampu LED memberikan penerangan maksimal untuk penggunaan di malam hari</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gradient-to-br from-gray-700 to-gray-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-feather-alt text-2xl text-gray-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Ringan & Portabel</h3>
+                    <p class="text-gray-400">Desain ergonomis yang ringan untuk kenyamanan saat digunakan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-cormorant text-4xl md:text-5xl font-bold text-center mb-12" data-aos="fade-up">
+                Testimoni Pelanggan
+            </h2>
+            
+            <div class="relative">
+                <div class="testimonial-carousel flex overflow-x-auto gap-6 pb-4">
+                    <!-- Testimonial 1 -->
+                    <div class="flex-none w-full md:w-1/2 lg:w-1/3" data-aos="fade-up">
+                        <div class="bg-gray-900 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <img src="https://i.pinimg.com/736x/ed/e6/6a/ede66a26797e3fdc1fcbdd65b3885304.jpg" 
+                                     alt="agus_rijadi" 
+                                     class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold">agus_rijadi</p>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Packing aman. Barang dikirim sesuai pesanan. Thanks ya.</p>
+                            <img src="https://down-id.img.susercontent.com/file/id-11134103-7r98q-lzkltv1p69eo5a.webp" 
+                                 alt="Review" 
+                                 class="w-full h-32 object-cover rounded cursor-pointer"
+                                 onclick="openLightbox(this.src)">
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="flex-none w-full md:w-1/2 lg:w-1/3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-gray-900 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <img src="https://i.pinimg.com/736x/29/27/7e/29277ed25751bff0c1162c92cf33c737.jpg" 
+                                     alt="slamet067" 
+                                     class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold">slamet067</p>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">trimksh gan paket sudah ditrima dengan baik pakingnya juga bagus🙏</p>
+                            <img src="https://down-id.img.susercontent.com/file/id-11134103-7rasj-m42wgt2azzhq8a.webp" 
+                                 alt="Review" 
+                                 class="w-full h-32 object-cover rounded cursor-pointer"
+                                 onclick="openLightbox(this.src)">
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="flex-none w-full md:w-1/2 lg:w-1/3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-gray-900 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <img src="https://i.pinimg.com/736x/1f/94/91/1f94919b0767e05205b09b33e0c8d782.jpg" 
+                                     alt="febriandpoetiray" 
+                                     class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold">febriandpoetiray</p>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                        <i class="fas fa-star text-sm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">Alhamdulillah sudah sampai sesuai deskripsi sangat membantu buat alat service</p>
+                            <img src="https://down-id.img.susercontent.com/file/id-11134103-7ra0k-mc7lcsoggnaa23.webp" 
+                                 alt="Review" 
+                                 class="w-full h-32 object-cover rounded cursor-pointer"
+                                 onclick="openLightbox(this.src)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-20 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-cormorant text-4xl md:text-5xl font-bold text-center mb-12" data-aos="fade-up">
+                Pesan Sekarang
+            </h2>
+            
+            <div class="order-form" data-aos="fade-up">
+                <!-- OrderOnline Form -->
+                <div class="ooef">
+                    <form class="orderonline-embed-form" 
+                          data-username="vera" 
+                          data-product-slug="magnifying-glass-with-led" 
+                          data-product-id="68a1bbe796b62b64be065a6a" 
+                          id="oo-embed-form-magnifying-glass-with-led-1856" 
+                          data-origin="orderonline">
+                        <div class="ooef-loader">
+                            <style>
+                                .ooef-loader {
+                                    visibility: hidden;
+                                    opacity: 0;
+                                    position: absolute;
+                                    left: 0;
+                                    right: 0;
+                                    top: 0;
+                                    bottom: 0;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    flex-direction: column;
+                                    animation: ooLoadingIn 10s ease;
+                                    -webkit-animation: ooLoadingIn 10s ease;
+                                    animation-fill-mode: forwards;
+                                    overflow: hidden;
+                                }
+                                
+                                @keyframes ooLoadingIn {
+                                    0% { visibility: hidden; opacity: 0 }
+                                    20% { visibility: visible; opacity: 0 }
+                                    100% { visibility: visible; opacity: 1 }
+                                }
+                                
+                                @-webkit-keyframes ooLoadingIn {
+                                    0% { visibility: hidden; opacity: 0 }
+                                    20% { visibility: visible; opacity: 0 }
+                                    100% { visibility: visible; opacity: 1 }
+                                }
+                                
+                                .ooef-loader>div, .ooef-loader>div:after {
+                                    border-radius: 50%;
+                                    width: 2.5rem;
+                                    height: 2.5rem;
+                                }
+                                
+                                .ooef-loader>div {
+                                    font-size: 10px;
+                                    position: relative;
+                                    text-indent: -9999em;
+                                    border: .25rem solid #f5f5f5;
+                                    border-left: .25rem solid #55c4cf;
+                                    -webkit-transform: translateZ(0);
+                                    -ms-transform: translateZ(0);
+                                    transform: translateZ(0);
+                                    -webkit-animation: ooLoading 1.1s infinite linear;
+                                    animation: ooLoading 1.1s infinite linear;
+                                }
+                                
+                                .ooef-loader.error>div {
+                                    border-left: .25rem solid #ff4500;
+                                    animation-duration: 5s;
+                                }
+                                
+                                @-webkit-keyframes ooLoading {
+                                    0% { -webkit-transform: rotate(0); transform: rotate(0) }
+                                    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg) }
+                                }
+                                
+                                @keyframes ooLoading {
+                                    0% { -webkit-transform: rotate(0); transform: rotate(0) }
+                                    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg) }
+                                }
+                            </style>
+                            <div aria-live="polite" role="status">
+                                <div>Loading...</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="font-cormorant text-2xl font-bold mb-4">Bestbrand Shop</h3>
+            <p class="text-gray-400 mb-4">Toko online terpercaya dengan produk berkualitas</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-facebook text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-twitter text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <img id="lightboxImage" src="" alt="Preview">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Social Proof System
+        const customers = ['Vina', 'Dina', 'Kartika', 'Lestari', 'Putri', 'Maya Sari', 'Rani', 'Permata'];
+        const cities = ['Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Bekasi', 'Tangerang', 'Depok', 'Semarang'];
+        
+        let socialProofInterval;
+        
+        function showSocialProof() {
+            const customer = customers[Math.floor(Math.random() * customers.length)];
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            
+            document.getElementById('customerName').textContent = customer;
+            document.getElementById('customerCity').textContent = city;
+            
+            const popup = document.getElementById('socialProof');
+            popup.classList.add('show');
+            
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 5000);
+        }
+        
+        // Start social proof cycle
+        setInterval(showSocialProof, 8000);
+        
+        // Scroll to sections
+        function scrollToOrder() {
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToProduct() {
+            document.getElementById('product').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Lightbox functionality
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox' || event.target.id === 'lightboxImage') {
+                document.getElementById('lightbox').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Sticky CTA on scroll
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.getElementById('stickyCta');
+            if (window.scrollY > 300) {
+                stickyCta.classList.add('show');
+            } else {
+                stickyCta.classList.remove('show');
+            }
+        });
+        
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            menu.classList.toggle('flex-col');
+            menu.classList.toggle('absolute');
+            menu.classList.toggle('top-16');
+            menu.classList.toggle('right-6');
+            menu.classList.toggle('bg-gray-900');
+            menu.classList.toggle('p-4');
+            menu.classList.toggle('rounded-lg');
+        }
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+    
+    <!-- OrderOnline Script -->
+    <script>
+        if (typeof xLogError != 'function') {
+            var xLogError = function (error) {
+                var req = new XMLHttpRequest();
+                var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack });
+                var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                req.open('POST', 'https://api.orderonline.id/log', true);
+                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                req.send(params);
+            };
+        }
+        
+        try {
+            if (typeof xEmbedScript != 'function') {
+                var xEmbedScript = function () {
+                    !function(w, d, e, v, id, t, s) {
+                        if (d.getElementById(id)) return;
+                        t = d.createElement(e);t.async = !0;t.src = v;t.id = id; s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                    }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                };
+            }
+            
+            if (typeof xEmbedInit != 'function') {
+                var xEmbedInit = function (w, n) {
+                    if (w.ooe) return;
+                    n = w.ooe = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+                    if (!w._ooe) w._ooe = n; n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                };
+            }
+            
+            xEmbedInit(window);
+            ooe('setup', 'redirect', 'https://vera.orderonline.id');
+            ooe('init', '5f1a7807a9bf807d6c63d963', '68a1bbe796b62b64be065a6a', '68a1bbe796b62b64be065a6b', 'oo-embed-form-magnifying-glass-with-led-1856', {
+                "mode":"page",
+                "action":"Klik untuk pemesanan",
+                "title":"Form Pemesanan",
+                "triggerPixel":true,
+                "triggerGtm":true
+            });
+            
+            if (!window.jQuery) {
+                !function(w, d, e, v, id, t, s) {
+                    if (d.getElementById(id)) return;
+                    t = d.createElement(e);t.async = !0;t.src = v;t.id = id; t.addEventListener('load', xEmbedScript);
+                    s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+            } else {
+                xEmbedScript();
+            }
+        } catch (e) {
+            xLogError(e); throw e;
+        }
+    </script>
+</body>
+</html>
